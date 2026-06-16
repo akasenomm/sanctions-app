@@ -16,12 +16,17 @@ abbreviations, typos, and substring variants.
 
 ## Running
 
-The project ships with the Maven wrapper, so Maven does not need to be
-installed. A Java 21 JDK is required.
+Requires **Java 21** and **Maven 3.9+** installed on `PATH`.
 
 ```bash
-# Set JAVA_HOME to JDK 21 if not already pointed
-.\mvnw.cmd spring-boot:run   # Windows
+mvn spring-boot:run
+```
+
+On Windows (PowerShell), set `JAVA_HOME` first if needed:
+
+```powershell
+$env:JAVA_HOME = 'C:\Program Files\Eclipse Adoptium\jdk-21.x.x'
+mvn spring-boot:run
 ```
 
 The app starts on http://localhost:8080 and seeds the assignment example
@@ -41,7 +46,7 @@ sanctioned names on startup:
 Run the tests with:
 
 ```bash
-.\mvnw.cmd test    # Windows
+mvn test
 ```
 
 ## API
