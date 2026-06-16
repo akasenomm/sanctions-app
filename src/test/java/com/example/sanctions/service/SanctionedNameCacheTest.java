@@ -40,10 +40,10 @@ class SanctionedNameCacheTest {
     }
 
     @Test
-    void upsertAndRemoveKeepIndexInSync() {
+    void upsertAndRemoveKeepCacheInSync() {
         SanctionedName first = new SanctionedName( "Osama Bin Laden" );
         first.setId( 1L );
-        SanctionedName second = new SanctionedName( "Saddam Hussein" );
+        SanctionedName second = new SanctionedName( "Robert" );
         second.setId( 2L );
         when( repository.findAll() ).thenReturn( List.of( first ) );
         cache.rebuild();
@@ -52,7 +52,6 @@ class SanctionedNameCacheTest {
         assertThat( cache.getAll() ).hasSize( 2 );
 
         cache.remove( 1L );
-        assertThat( cache.getAll() ).containsExactly(
-                new SanctionedNameCacheEntry( 2L, "Saddam Hussein", List.of( "saddam", "hussein" ) ) );
+        assertThat( cache.getAll() ).containsExactly( new SanctionedNameCacheEntry( 2L, "Robert", List.of( "robert" ) ) );
     }
 }
