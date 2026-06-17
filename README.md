@@ -139,5 +139,5 @@ A name is treated as a set of tokens, and matching runs as follows:
 
 For this type of task I would actually use Elasticsearch which is specialized for
 fuzzy matching and which scales incredibly well, but I figured this task was
-give to showcase Java skills not skills for integrating tools.
+given to showcase Java skills not skills for integrating tools.
 
